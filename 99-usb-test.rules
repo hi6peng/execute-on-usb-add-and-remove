@@ -1,0 +1,6 @@
+SUBSYSTEM!="usb", ACTION!="add|remove",GOTO="99_usb_rules_end"
+
+ACTION=="add", ATTR{idVendor}=="2717", ATTR{idProduct}=="5016", RUN+="/usr/bin/test.sh"
+ACTION=="remove", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="2717/5016/102", RUN+="/usr/bin/test.sh"
+
+LABEL="99_usb_rules_end"
